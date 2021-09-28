@@ -1,0 +1,29 @@
+{%extends "main/base.html"%}
+{%block content%}
+
+<form method="POST" id="request">
+  {% csrf_token %}
+  <title>QUIZ PREVIEW</title>
+  <h1 class="title"><center>QUIZ PREVIEW</center></h1>
+  <div class="content mx-5">
+    {% for d in d_ch %}
+    {% if d.image.url != "/default.jpg" %}
+      <img src="{{ d.image.url }}">
+    {% endif %}
+    <p class="has-text-weight-semibold">{{ d.domanda }}</p>
+    <p class="mx-4 ">{{ d.rc }}</p>
+    <br><br>
+    {% endfor %}
+    {% for d in d_ap %}
+    {% if d.image.url != "/default.jpg" %}
+      <img src="{{ d.image.url }}">
+    {% endif %}
+    <p class="has-text-weight-semibold">{{ d.domanda }}</p>
+    <p class="mx-4 ">{{ d.risposta }}</p>
+    <br><br>
+    {% endfor %}
+  </div>
+
+</form>
+
+{%endblock%}

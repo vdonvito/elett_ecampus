@@ -1,0 +1,21 @@
+{%extends "main/base.html"%}
+{%block content%}
+
+<form method="POST" id="request">
+  {% csrf_token %}
+  <title>QUIZ PREVIEW</title>
+  <h1 class="title"><center>QUIZ PREVIEW</center></h1>
+  <div class="content mx-5">
+    {% for q in questions %}
+    <p class="has-text-weight-semibold">{{ q.domanda }}</p>
+    <p class="mx-4 ">{{ q.r1 }}</p>
+    <p class="mx-4">{{ q.r2 }}</p>
+    <p class="mx-4">{{ q.r3 }}</p>
+    <p class="mx-4">{{ q.r4 }}</p>
+    <br><br>
+    {% endfor %}
+  </div>
+  <input type="submit" value="INIZIA" class="button is-primary" id="search_button" style="margin:0px auto; display:block;">
+</form>
+
+{%endblock%}

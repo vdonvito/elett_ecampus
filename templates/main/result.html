@@ -1,0 +1,60 @@
+{%extends "main/base.html"%}
+{%block content%}
+
+<form method="POST" id="request">
+  {% csrf_token %}
+  <title>RISULTATI</title>
+  <h1 class="title"><center>RISULTATI</center></h1>
+  <h1 class="title mt-4 mb-5 has-text-weight-light is-size-4 has-text-centered">PUNTEGGIO: {{ score }} / 30</h1>
+  <h1 class="title has-text-weight-normal is-size-4 has-text-centered">{{ message }}</h1>
+  <div class="content mx-5">
+    {% for r in results %}
+      <p class="has-text-weight-semibold">{{ r.domanda }}</p>
+
+        {% if r.rc ==  r.r1 %}
+          <p class="notification is-success py-1">{{ r.r1 }}</p>
+        {% else %}
+          {% if r.r1 ==  r.rispostaData %}
+            <p class="notification is-danger py-1">{{ r.r1 }}</p>
+          {% else %}
+            <p class="mx-4 ">{{ r.r1 }}</p>
+          {% endif %}
+        {% endif %}
+
+        {% if r.rc ==  r.r2 %}
+          <p class="notification is-success py-1">{{ r.r2 }}</p>
+        {% else %}
+          {% if r.r2 ==  r.rispostaData %}
+            <p class="notification is-danger py-1">{{ r.r2 }}</p>
+          {% else %}
+            <p class="mx-4 ">{{ r.r2 }}</p>
+          {% endif %}
+        {% endif %}
+
+        {% if r.rc ==  r.r3 %}
+          <p class="notification is-success py-1">{{ r.r3 }}</p>
+        {% else %}
+          {% if r.r3 ==  r.rispostaData %}
+            <p class="notification is-danger py-1">{{ r.r3 }}</p>
+          {% else %}
+            <p class="mx-4 ">{{ r.r3 }}</p>
+          {% endif %}
+        {% endif %}
+
+        {% if r.rc ==  r.r4 %}
+          <p class="notification is-success py-1">{{ r.r4 }}</p>
+        {% else %}
+          {% if r.r4 ==  r.rispostaData %}
+            <p class="notification is-danger py-1">{{ r.r4 }}</p>
+          {% else %}
+            <p class="mx-4 ">{{ r.r4 }}</p>
+          {% endif %}
+        {% endif %}
+
+      <br><br>
+    {% endfor %}
+  </div>
+  <input type="submit" value="SALVA" class="button is-success" id="search_button" style="margin:0px auto; display:block;">
+</form>
+
+{%endblock%}

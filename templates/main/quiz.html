@@ -1,0 +1,23 @@
+{%extends "main/base.html"%}
+{%block content%}
+
+<title>DOMANDA N. {{ num }} - QUIZ ECAMPUS</title>
+<form method="POST" id="request">
+  {% csrf_token %}
+  <h1 class="title mt-4 mb-5 has-text-weight-light is-size-4 "><center>DOMANDA N. {{ num }} di 30</center></h1>
+  <div class="content mx-5">
+    <p class="has-text-weight-semibold">{{ q.domanda }}</p>
+    <input type="radio" id="r1" class="mx-3" name="answer" value="{{ q.r1 }}">
+    <label for="r1">{{ q.r1 }}</label><br>
+    <input type="radio" id="r2" class="mx-3" name="answer" value="{{ q.r2 }}">
+    <label for="r2">{{ q.r2 }}</label><br>
+    <input type="radio" id="r3" class="mx-3" name="answer" value="{{ q.r3 }}">
+    <label for="r3">{{ q.r3 }}</label><br>
+    <input type="radio" id="r4" class="mx-3" name="answer" value="{{ q.r4 }}">
+    <label for="r4">{{ q.r4 }}</label><br>
+    <br>
+    <input type="submit" value="CONTINUA" class="button is-primary " id="search_button" style="margin:0px auto; display:block;">
+    </div>
+</form>
+
+{%endblock%}

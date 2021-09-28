@@ -1,0 +1,12 @@
+{%extends "main/base.html"%}
+{%block content%}
+
+<form method="POST" id="request">
+  {% csrf_token %}
+  <br>
+  <h1 class="title has-text-centered has-text-weight-normal is-size-4">{{ message }}</h1>
+  <p class="subtitle has-text-centered">Clicca per tornare al quiz</p>
+  <input type="submit" value="CONTINUA" class="button is-info" id="search_button" style="margin:0px auto; display:block;">
+</form>
+
+{%endblock%}
